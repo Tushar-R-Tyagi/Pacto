@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PACTO</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="themes/theme1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Menu bar -->
+        <div class="menubar">
+            <button class="menu-btn" onclick="toggleSettings()">Settings</button>
+            <select class="menu-btn" id="theme-select" onchange="changeTheme(this.value)" style="padding:3px 8px; font-size:11px; cursor:pointer;">
+                <option value="theme1">WinXP</option>
+                <option value="theme2">Win10</option>
+                <option value="theme3">Arcade</option>
+             </select>
+            <button class="menu-btn" onclick="toggleAudio()">Audio</button>
+            <button class="menu-btn" onclick="toggleLog()">Log</button>
+        </div>
+
+        <!-- Status text -->
+        <div class="status" id="status-label">Ready. Default bout: 45 min.</div>
+
+        <!-- Outcome display when set -->
+        <div class="outcome-display" id="outcome-display" style="display:none;"></div>
+
+        <!-- Idle -->
+        <div id="idle-area">
+            <input type="text" id="outcome-input" placeholder="What will you PRODUCE in the next 45 minutes?">
+            <button id="start-btn" class="btn start-btn" onclick="startBout()">Start Bout</button>
+        </div>
+
+        <!-- Running -->
+        <div id="running-area" style="display:none;">
+            <div class="timer" id="timer">45:00</div>
+            <button class="btn cancel-btn" onclick="cancelBout()">Cancel</button>
+        </div>
+
+        <!-- Review -->
+        <div id="review-area" style="display:none;">
+            <div class="review-text" id="review-text"></div>
+            <div class="review-buttons">
+                <button class="btn complete-btn" onclick="review('complete')">Complete</button>
+                <button class="btn shift-btn" onclick="review('shift')">Shift</button>
+                <button class="btn discard-btn" onclick="review('discard')">Discard</button>
+            </div>
+        </div>
+
+        <!-- Settings panel -->
+        <div id="settings-panel" style="display:none;">
+            <label>Bout length (minutes):</label>
+            <input type="number" id="bout-minutes-input" min="1" max="180" value="45">
+            <button class="btn" onclick="saveSettings()">Save</button>
+        </div>
+
+        <!-- Audio panel -->
+        <div id="audio-panel" style="display:none;">
+            <label><input type="checkbox" id="chimes-enabled" checked onchange="toggleChimes()"> Chimes</label>
+            <label><input type="checkbox" id="music-enabled" onchange="toggleMusic()"> Music</label>
+        </div>
+
+        <!-- Session log -->
+        <div id="log-panel" style="display:none;">
+            <div id="log-content"></div>
+            <button class="btn" onclick="toggleLog()">Close</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

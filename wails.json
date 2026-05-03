@@ -1,0 +1,13 @@
+{
+  "name": "pacto",
+  "outputfilename": "pacto",
+  "frontend:install": "",
+  "frontend:build": "",
+  "frontend:dev:watcher": "",
+  "frontend:dev:serverUrl": "",
+  "author": {
+    "name": "You",
+    "email": "you@example.com"
+  },
+  "devtools": true
+}

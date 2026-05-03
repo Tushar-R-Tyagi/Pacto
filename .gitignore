@@ -1,0 +1,22 @@
+# Build output
+/build/
+/bin/
+/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime data
+*.db
+*.sqlite
+
+# Dependencies
+/node_modules/
+
+# Environment
+.env
