@@ -42,7 +42,7 @@ Together, these form **P**ressure → **A**im → **C**onstraint → **T**ermina
 - Session history grouped by date with time ranges
 - Start and end chimes
 - Optional lo‑fi focus music (drop `.mp3` files next to the `.exe`)
-- Theme switcher (Windows 10, Windows XP, Arcade)
+- Theme switcher (Windows 7, Windows XP, Arcade)
 - Single portable `.exe` — no install required
 
 ---
