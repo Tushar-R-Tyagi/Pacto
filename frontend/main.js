@@ -46,7 +46,7 @@ async function startBout() {
     secondsLeft = status.boutMinutes * 60;
     totalSeconds = secondsLeft;
 
-    document.getElementById("idle-area").style.display = "none";
+    document.getElementById("bout-area").style.display = "none";
     document.getElementById("running-area").style.display = "block";
     document.getElementById("outcome-display").style.display = "block";
     document.getElementById("outcome-display").textContent = outcome;
@@ -91,11 +91,15 @@ function updateTimer() {
     document.getElementById("timer").textContent = `${mins}:${secs.toString().padStart(2, "0")}`;
 }
 
-function resetUI() {
-    clearInterval(timerInterval);
-    document.getElementById("idle-area").style.display = "block";
+function showBoutUI() {
+    document.getElementById("bout-area").style.display = "block";
     document.getElementById("running-area").style.display = "none";
     document.getElementById("review-area").style.display = "none";
+}
+
+function resetUI() {
+    clearInterval(timerInterval);
+    showBoutUI();
     document.getElementById("outcome-input").value = "";
     secondsLeft = 0;
     totalSeconds = 0;
@@ -132,24 +136,19 @@ async function toggleMusic() { /* TODO: wire to Go */ }
 // ── Log ───────────────────────────────────────────
 async function toggleLog() {
     const panel = document.getElementById("log-panel");
-    const idle = document.getElementById("idle-area");
-    const running = document.getElementById("running-area");
-    const review = document.getElementById("review-area");
-    const settings = document.getElementById("settings-panel");
-    const audio = document.getElementById("audio-panel");
 
     if (panel.style.display === "flex") {
         panel.style.display = "none";
-        if (idle) idle.style.display = "block";
+        showBoutUI();
         return;
     }
 
     // Hide other panels
-    if (idle) idle.style.display = "none";
-    if (running) running.style.display = "none";
-    if (review) review.style.display = "none";
-    if (settings) settings.style.display = "none";
-    if (audio) audio.style.display = "none";
+    document.getElementById("bout-area").style.display = "none";
+    document.getElementById("running-area").style.display = "none";
+    document.getElementById("review-area").style.display = "none";
+    document.getElementById("settings-panel").style.display = "none";
+    document.getElementById("audio-panel").style.display = "none";
 
     // Fetch grouped log
     const days = await window.go.main.App.GetLog();

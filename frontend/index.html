@@ -25,8 +25,9 @@
         <!-- Outcome display when set -->
         <div class="outcome-display" id="outcome-display" style="display:none;"></div>
 
-        <!-- Idle -->
-        <div id="idle-area">
+        <!-- Bout -->
+        <div id="bout-area">
+            <div class="section-title">Bout</div>
             <input type="text" id="outcome-input" placeholder="What will you PRODUCE in the next 45 minutes?">
             <button id="start-btn" class="btn start-btn" onclick="startBout()">Start Bout</button>
         </div>
@@ -63,7 +64,10 @@
         <!-- Session log -->
         <div id="log-panel" style="display:none;">
             <div id="log-content"></div>
-            <button class="btn" onclick="toggleLog()">Close</button>
+            <div class="log-actions">
+                <button class="btn" onclick="showBoutUI(); toggleLog()">Back to Bout</button>
+                <button class="btn" onclick="toggleLog()">Close</button>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
