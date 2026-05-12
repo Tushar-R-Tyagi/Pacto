@@ -47,9 +47,20 @@ Together, these form **P**ressure → **A**im → **C**onstraint → **T**ermina
 
 ---
 
+## Themes
+
+Just for the nostaligic vibes I put the Windows XP and 7 Theme and a cool arcade one :)
+
+<img width="400" height="285" alt="Screenshot 2026-05-12 161302" src="https://github.com/user-attachments/assets/dd2b896c-4443-4711-a301-a11ba8392219" />
+<img width="400" height="285" alt="Screenshot 2026-05-12 161312" src="https://github.com/user-attachments/assets/3bca1812-1ea2-4524-b024-80ac7959c59e" />
+<img width="400" height="285" alt="Screenshot 2026-05-12 161249" src="https://github.com/user-attachments/assets/541399c1-c588-4bf3-ba76-caa7accecc72" />
+
+
+
+
 ## Download
 
-Get the latest `.exe` from [Releases](https://github.com/Tushar-R-Tyagi/pacto-desktop/releases).
+I will upload the exe after I have fixed some bugs, but the build version will work fine on your machine.
 
 ---
 
