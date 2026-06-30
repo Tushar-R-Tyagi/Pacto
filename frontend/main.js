@@ -42,21 +42,19 @@ async function startBout() {
     await window.go.main.App.SetOutcome(outcome);
     await window.go.main.App.StartBout();
 
-    const status = await window.go.main.App.GetStatus();
-    secondsLeft = status.boutMinutes * 60;
-    totalSeconds = secondsLeft;
-
     document.getElementById("bout-area").style.display = "none";
     document.getElementById("running-area").style.display = "block";
     document.getElementById("outcome-display").style.display = "block";
     document.getElementById("outcome-display").textContent = outcome;
     document.getElementById("status-label").style.display = "none";
 
-    updateTimer();
-    timerInterval = setInterval(() => {
-        secondsLeft--;
+    // Poll the backend for the REAL time left, instead of counting our own ticks
+    timerInterval = setInterval(async () => {
+        const status = await window.go.main.App.GetStatus();
+        secondsLeft = status.timeLeft;       // ← truth comes from the backend
         updateTimer();
-        if (secondsLeft <= 0) {
+
+        if (!status.timerRunning || status.timeLeft <= 0) {
             clearInterval(timerInterval);
             document.getElementById("running-area").style.display = "none";
             document.getElementById("review-text").textContent = `Did you produce: "${outcome}"?`;
